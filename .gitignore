@@ -1,0 +1,20 @@
+# Secrets
+.env
+
+# Virtual Environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# OpenAPI exports
+a86c6dab-cc0c-4f00-8e0e-6b8e76165097
+9857973b-2d03-498a-9f99-4cacc2146122
+
+# OS
+Thumbs.db
+.DS_Store
