@@ -10,66 +10,138 @@ Instead of relying on pre-built datasets, chemical information is collected, pro
 
 ## Current Features
 
-- RSC API integration
+### RSC API Integration
+
+- RSC API authentication
 - Compound search by name
 - Query status tracking
 - Query result retrieval
-- Record detail retrieval
+- Compound detail retrieval
+- External reference retrieval
 - OpenAPI-based API exploration
 
-## Example Result
+### SQLite Persistence Layer
 
-Compound: Aspirin
+- Compound storage
+- Compound retrieval by record ID
+- CAS number storage
+- SMILES storage
+- Molecular metadata storage
+
+### RDKit Feature Engineering
+
+- SMILES to Mol object conversion
+- Molecular graph analysis
+- Ring structure identification
+- Descriptor calculation
+
+Currently supported descriptors:
+
+- Molecular Weight
+- logP
+- TPSA
+- H-Bond Donors
+- H-Bond Acceptors
+- Rotatable Bonds
+- Ring Count
+- Number of Atoms
+- Number of Bonds
+
+## Example Workflow
+
+```text
+RSC API
+    ↓
+Compound Search
+    ↓
+Record ID
+    ↓
+SQLite Database
+    ↓
+SMILES
+    ↓
+RDKit
+    ↓
+Feature Vector
+```
+
+## Example Compound
+
+### Aspirin
 
 Record ID:
 
 2157
 
-Retrieved fields:
+CAS Number:
 
-- Common Name
-- SMILES
-- Formula
-- InChI
-- InChIKey
-- Molecular Weight
+50-78-2
 
-Example SMILES:
+SMILES:
 
 ```text
-CC(=O)Oc1ccccc1C(=O)O
+CC(=O)OC1=CC=CC=C1C(=O)O
+```
+
+Generated Feature Vector:
+
+```text
+Molecular Weight: 180.159
+logP: 1.310
+TPSA: 63.600
+H-Donors: 1
+H-Acceptors: 3
+Rotatable Bonds: 2
+Ring Count: 1
+Atoms: 13
+Bonds: 13
 ```
 
 ## Technology Stack
 
 - Python
 - Requests
+- SQLite
+- RDKit
 - REST APIs
 - OpenAPI
-- VS Code
 - Git
 - GitHub
-
-## Planned Features
-
-- SQLite database integration
-- Compound storage layer
-- RDKit descriptor generation
-- Exploratory Data Analysis (EDA)
-- Random Forest models
-- Artificial Neural Networks (ANN)
-- Graph Neural Networks (GNN)
-- Streamlit interface
+- VS Code
 
 ## Project Status
 
-Version: v0.1
+Current Version: v0.3
 
-Milestone completed:
+### Completed Milestones
+
+#### v0.1 - RSC API Integration
 
 - Successful RSC API connection
-- Compound search workflow implemented
-- Retrieval of structured molecular data
+- Compound search workflow
+- Query status workflow
+- Molecular detail retrieval
+
+#### v0.2 - SQLite Persistence Layer
+
+- SQLite database implementation
+- Compound storage
+- Compound retrieval
+- First stored compound: Aspirin
+
+#### v0.3 - RDKit Feature Engineering
+
+- SMILES processing
+- Molecular graph exploration
+- Descriptor calculation
+- SQLite → RDKit pipeline
+
+## Next Milestone (v0.4)
+
+- Multiple compounds
+- Dataset generation
+- Pandas DataFrame creation
+- Preparation for scikit-learn models
 
 ## Author
 
