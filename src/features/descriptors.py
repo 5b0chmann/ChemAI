@@ -10,12 +10,17 @@ def calculate_descriptors(smiles):
 
     return {
         "molecular_weight": Descriptors.MolWt(mol),
-        "logp": Descriptors.MolLogP(mol),
+        "log_p": Descriptors.MolLogP(mol),
         "h_donors": Lipinski.NumHDonors(mol),
         "h_acceptors": Lipinski.NumHAcceptors(mol),
         "tpsa": Descriptors.TPSA(mol),
         "rotatable_bonds": Lipinski.NumRotatableBonds(mol),
         "ring_count": Lipinski.RingCount(mol),
+        "num_atoms": mol.GetNumAtoms(),
+        "num_bonds": mol.GetNumBonds(),
     }
 
-    return descriptors
+
+
+
+  
