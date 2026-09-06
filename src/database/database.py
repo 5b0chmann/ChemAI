@@ -55,3 +55,12 @@ def get_compound_by_id(record_id):
     result = cursor.fetchone()
     conn.close()
     return result
+
+def get_all_compounds():
+    """Retrieve all compounds from the database."""
+    conn = get_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM compounds")
+    compounds = cursor.fetchall()
+    conn.close()
+    return compounds

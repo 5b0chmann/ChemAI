@@ -20,6 +20,22 @@ aspirin = {"record_id": 2157,
 insert_compound(aspirin)
 print("Aspirin inserted successfully.")
 
+levetiracetam = {
+    "record_id": 4447633,
+    "common_name": "Levetiracetam",
+    "cas_number": None,
+    "smiles": "CC[C@@H](C(N)=O)N1CCCC1=O",
+    "formula": "C_{8}H_{14}N_{2}O_{2}",
+    "inchi": "InChI=1/C8H14N2O2/c1-2-6(8(9)12)10-5-3-4-7(10)11/h6H,2-5H2,1H3,(H2,9,12)/t6-/m0/s1",
+    "inchi_key": "HPHUVLMMVZITSG-LURJTMIENA-N",
+    "molecular_weight": 170.212
+}
+
+insert_compound(levetiracetam)
+
+print("Levetiracetam inserted successfully.")
+
 compound = get_compound_by_id(2157)
 print("\nRetrieved compound from database:")
 print(compound)
+
