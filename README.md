@@ -1,148 +1,135 @@
 # ChemAI
 
-ChemAI is a computational chemistry and data science project.
+ChemAI is a cheminformatics and machine learning project focused on pharmaceutical compounds, molecular descriptors, and structure-property relationships.
 
-## Project Goal
+## Current Version
 
-The goal of ChemAI is to build a complete chemical data pipeline using the Royal Society of Chemistry (RSC) API as the primary data source.
+**v0.5 Molecular Descriptor Analysis**
 
-Instead of relying on pre-built datasets, chemical information is collected, processed, stored, and prepared for machine learning workflows.
+## Project Roadmap
 
-## Current Features
+### Phase 1 – Data Acquisition
+- ✅ v0.1 RSC API Integration
+- ✅ v0.2 SQLite Database
+- ✅ Compound Registry
+- ⏸ Google Drive Synchronization (deferred)
 
-### RSC API Integration
+### Phase 2 – Descriptor Analysis
+- ✅ v0.3 RDKit Feature Engineering
+- ✅ v0.4 Dataset Builder
+- ✅ v0.5 Molecular Descriptor Analysis
 
-- RSC API authentication
-- Compound search by name
-- Query status tracking
-- Query result retrieval
-- Compound detail retrieval
-- External reference retrieval
-- OpenAPI-based API exploration
+### Phase 3 – Machine Learning
+- ⬜ Random Forest Baseline
+- ⬜ Artificial Neural Network (ANN)
+- ⬜ GPU Acceleration
 
-### SQLite Persistence Layer
+### Phase 4 – Deep Learning
+- ⬜ Molecular Graph Generation
+- ⬜ Graph Neural Networks (GNN)
+- ⬜ Model Comparison
 
-- Compound storage
-- Compound retrieval by record ID
-- CAS number storage
-- SMILES storage
-- Molecular metadata storage
+---
 
-### RDKit Feature Engineering
+## Dataset
 
-- SMILES to Mol object conversion
-- Molecular graph analysis
-- Ring structure identification
-- Descriptor calculation
+Current dataset:
 
-Currently supported descriptors:
+- 20 curated pharmaceutical compounds
+- Analgesics
+- Antiepileptics
+- Anesthetics
 
-- Molecular Weight
-- logP
+Stored in:
+
+- `Data/chemai.db`
+- `Data/compound_descriptors.csv`
+
+---
+
+## Implemented Features
+
+### Data Layer
+
+- RSC API integration
+- SQLite storage
+- Compound registry
+- Automated compound loading
+
+### RDKit Descriptor Pipeline
+
+Calculated descriptors:
+
+- Molecular Weight (MolWt)
+- LogP
 - TPSA
-- H-Bond Donors
-- H-Bond Acceptors
+- HDonors
+- HAcceptors
 - Rotatable Bonds
 - Ring Count
-- Number of Atoms
-- Number of Bonds
+- Heavy Atom Count
+- Hetero Atom Count
+- Valence Electrons
+- FractionCSP3
 
-## Example Workflow
+### Analysis
 
-```text
-RSC API
-    ↓
-Compound Search
-    ↓
-Record ID
-    ↓
-SQLite Database
-    ↓
-SMILES
-    ↓
-RDKit
-    ↓
-Feature Vector
-```
+- Descriptor DataFrame generation
+- CSV export
+- Class-based statistical analysis
+- Correlation analysis
+- Outlier detection
 
-## Example Compound
+---
 
-### Aspirin
+## Key Findings (v0.5)
 
-Record ID:
+### Anesthetics
 
-2157
+- Highest average LogP
+- Lowest average TPSA
+- Relatively homogeneous descriptor profile
 
-CAS Number:
+### Antiepileptics
 
-50-78-2
+- Highest average TPSA
+- Highest average FractionCSP3
+- Most structurally heterogeneous class
 
-SMILES:
+### Analgesics
 
-```text
-CC(=O)OC1=CC=CC=C1C(=O)O
-```
+- More aromatic character
+- Lower average FractionCSP3
 
-Generated Feature Vector:
+### Stereochemistry
 
-```text
-Molecular Weight: 180.159
-logP: 1.310
-TPSA: 63.600
-H-Donors: 1
-H-Acceptors: 3
-Rotatable Bonds: 2
-Ring Count: 1
-Atoms: 13
-Bonds: 13
-```
+The following stereoisomer pairs produced identical classical 2D RDKit descriptors:
 
-## Technology Stack
+- (S)-Ibuprofen / (R)-Ibuprofen
+- (+)-Etomidate / (-)-Etomidate
+
+This demonstrates the limitations of traditional 2D descriptor approaches.
+
+---
+
+## Next Release
+
+### v0.6 Spectroscopy Foundations
+
+Planned topics:
+
+- Functional group detection
+- IR-relevant features
+- NMR-relevant features
+- Spectroscopic interpretation
+
+---
+
+## Technologies
 
 - Python
-- Requests
-- SQLite
 - RDKit
-- REST APIs
-- OpenAPI
-- Git
-- GitHub
-- VS Code
-
-## Project Status
-
-Current Version: v0.3
-
-### Completed Milestones
-
-#### v0.1 - RSC API Integration
-
-- Successful RSC API connection
-- Compound search workflow
-- Query status workflow
-- Molecular detail retrieval
-
-#### v0.2 - SQLite Persistence Layer
-
-- SQLite database implementation
-- Compound storage
-- Compound retrieval
-- First stored compound: Aspirin
-
-#### v0.3 - RDKit Feature Engineering
-
-- SMILES processing
-- Molecular graph exploration
-- Descriptor calculation
-- SQLite → RDKit pipeline
-
-## Next Milestone (v0.4)
-
-- Multiple compounds
-- Dataset generation
-- Pandas DataFrame creation
-- Preparation for scikit-learn models
-
-## Author
-
-Sebastian Bochmann
+- SQLite
+- Pandas
+- NumPy
+- Scikit-learn
