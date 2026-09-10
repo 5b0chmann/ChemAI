@@ -1,5 +1,6 @@
 from pathlib import Path
 from rdkit import Chem
+import pandas as pd
 import sys
 
 project_root = Path(__file__).resolve().parent.parent
@@ -11,14 +12,36 @@ smiles = "CC(=O)Nc1ccc(O)cc1" # Paracetamol
 
 mol = Chem.MolFromSmiles(smiles)
 
+feature_matrix = []
+
 for atom in mol.GetAtoms():
 
     vector = get_atom_feature_vector(atom)
 
-    print(f"Atom {atom.GetIdx()} "
-          f"({atom.GetSymbol()}):")
+    feature_matrix.append(vector)
 
-    print(vector)
+columns = [
+    "atomic_number",
+    "degree",
+    "formal_charge",
+    "valence",
+    "hybridization",
+    "is_aromatic",
+    "is_in_ring",
+    "ring_size",
+    "num_hydrogens",
+    "neighbor_c",
+    "neighbor_n",
+    "neighbor_o",
+    "neighbor_halogen",
+    "single_bonds",
+    "double_bonds",
+    "triple_bonds"
+]
+
+df = pd.DataFrame(feature_matrix, columns=columns)
+
+print(df)
 
 
 
