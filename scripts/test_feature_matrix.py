@@ -219,7 +219,7 @@ print(X_pca_scaled[:10])
 
 # ----------------------------------
 # PCA VISUALIZATION
-# Atomic environment projection
+# Colored by Atom Type
 # ----------------------------------
 
 colors = {"C": "black",
@@ -256,6 +256,11 @@ plt.grid(True)
 plt.tight_layout()
 
 plt.show()
+
+# ----------------------------------
+# PCA VISUALIZATION
+# Colored by Aromaticity
+# ----------------------------------
 
 plt.figure(figsize=(10,8))
 
@@ -307,7 +312,7 @@ print(interesting_neg[["compound_name",
 plt.xlabel("PC1_scaled")
 plt.ylabel("PC2_scaled")
 
-plt.title("PCA of Electronic Evironments \n Colored by Aromaticity")
+plt.title("PCA of Electronic Evironments \nColored by Aromaticity")
 
 cbar = plt.colorbar(scatter)
 cbar.set_label("Aromatic (0 = No, 1 = Yes)")
@@ -341,6 +346,11 @@ cluster_names ={
 }
 df["cluster_name"] = df["cluster"].map(cluster_names)
 
+print("\n")
+print("=" * 80)
+print("KMEANS CLUSTERING")
+print("=" * 80)
+
 print("\nCluster Sizes:")
 print(df["cluster"].value_counts())
 
@@ -361,42 +371,6 @@ print(cluster_summary)
 print("\nAtom Types per Cluster:")
 
 print(df.groupby("cluster")["atom_symbol"].value_counts())
-
-# ----------------------------------
-# Molecular Cluster Fingerprints
-# ----------------------------------
-
-compound_clusters = (df.groupby(["compound_name", "cluster_name"]).size().unstack(fill_value=0))
-
-print("\n Compound Cluster Fingerprints:")
-print(compound_clusters)
-
-compound_clusters.to_csv("compound_cluster_fingerprints.csv")
-
-#-------------------
-# Cosine Similarity
-#-------------------
-
-similarity_matrix = pd.DataFrame(cosine_similarity(compound_clusters),
-                                 index=compound_clusters.index,
-                                 columns=compound_clusters.index)
-
-print("\nMolecular Similarity Matrix:")
-print(similarity_matrix.round(3))
-
-similarity_matrix.to_csv("molecular_similarity_matrix.csv")
-
-for compound in similarity_matrix.index:
-
-     print(f"\n{compound}")
-
-     similar = (
-          similarity_matrix.loc[compound]
-          .drop(compound)
-          .sort_values(ascending=False)
-          .head(3))
-
-     print(similar)
 
 # ----------------------------------
 # CLUSTER INTERPRETATION
@@ -452,7 +426,47 @@ for cluster_id in centers_original.index:
 centers_original = centers_original.reset_index()
 centers_original.rename(columns={"index": "cluster"}, inplace=True)
 
-centers_original.to_csv("cluster_center.csv", index=False)
+# ----------------------------------
+# MOLECULAR FINGERPRINTS
+# ----------------------------------
+print("\n")
+print("=" * 80)
+print("MOLECULAR CLUSTER FINGERPRINTS")
+print("=" * 80)
+
+compound_clusters = (df.groupby(["compound_name", "cluster_name"]).size().unstack(fill_value=0))
+
+print("\nCompound Cluster Fingerprints:")
+print(compound_clusters)
+
+#-------------------
+# MOLECULAR SIMILARITY
+#-------------------
+
+print("\n")
+print("=" * 80)
+print("MOLECULAR SIMILARITY ANALYSIS")
+print("=" * 80)
+
+similarity_matrix = pd.DataFrame(cosine_similarity(compound_clusters),
+                                 index=compound_clusters.index,
+                                 columns=compound_clusters.index)
+
+print("\nMolecular Similarity Matrix:")
+print(similarity_matrix.round(3))
+
+for compound in similarity_matrix.index:
+
+     print(f"\n{compound}")
+
+     similar = (
+          similarity_matrix.loc[compound]
+          .drop(compound)
+          .sort_values(ascending=False)
+          .head(3))
+
+     print(similar)
+
 
 # ----------------------------------
 # KMEANS VISUALIZATION
@@ -481,13 +495,15 @@ plt.tight_layout()
 
 plt.show()
 
-interesting_neg = df[
-     (df["PC1_scaled"] < -2)
-     &(df["PC2_scaled"] < 0)
-]
-
 # ----------------------------------
 # EXPORT
 # ----------------------------------
 
 df.to_csv("atom_feature_matrix_with_pca.csv", index=False)
+
+compound_clusters.to_csv("compound_cluster_fingerprints.csv")
+
+similarity_matrix.to_csv("molecular_similarity_matrix.csv")
+
+centers_original.to_csv("cluster_center.csv", index=False)
+
