@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.1 Molecular Cluster Fingerprints**
+**v0.8.2 Molecular Similarity Analysis**
 
 ## Current Objective
 
@@ -23,7 +23,7 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.1 Key Results
+## v0.8.2 Key Results
 
 - 20 pharmaceutical compounds analyzed
 - 312 atomic environments extracted
@@ -33,6 +33,9 @@ The project combines:
 - Molecule-level cluster fingerprint generation
 - Chemical environment profiles for all compounds
 - Compound fingerprint matrix export
+- Molecular similarity matrix generation
+- Compound similarity ranking
+- Chemical space exploration
 
 ### Discovered Chemical Environments
 
@@ -162,8 +165,6 @@ Planned:
 - Spectral prediction from molecular graphs
 
 ---
-
-## Current Pipeline
 
 ## Current Pipeline
 
