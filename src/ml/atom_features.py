@@ -2,6 +2,12 @@ from rdkit import Chem
 from rdkit.Chem.rdchem import HybridizationType
 from rdkit.Chem.rdchem import BondType
 
+from src.ml.electronic_features import (get_gasteiger_charge,
+                                        get_mean_neighbor_charge,
+                                        get_max_neighbor_charge,
+                                        get_min_neighbor_charge)
+
+
 HYBRIDIZATION_MAP = {HybridizationType.SP: 1,
                      HybridizationType.SP2: 2,
                      HybridizationType.SP3: 3,
@@ -77,6 +83,15 @@ def get_atom_feature_vector(atom):
 
     bonds = get_bond_type_summary(atom)
 
+    gasteiger_charge = get_gasteiger_charge(atom)
+
+    mean_neighbor_charge = (get_mean_neighbor_charge(atom))
+
+    max_neighbor_charge = (get_max_neighbor_charge(atom))
+
+    min_neighbor_charge = (get_min_neighbor_charge(atom))
+
+                                
     return[features["atomic_number"],
            features["degree"],
            features["formal_charge"],
@@ -95,5 +110,10 @@ def get_atom_feature_vector(atom):
 
            bonds["single_bonds"],
            bonds["double_bonds"],
-           bonds["triple_bonds"]]
+           bonds["triple_bonds"],
+
+           gasteiger_charge,
+           mean_neighbor_charge,
+           max_neighbor_charge,
+           min_neighbor_charge]
 
