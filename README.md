@@ -121,18 +121,17 @@ The project combines:
 - Molecule-level chemical environment profiles
 - Fingerprint CSV export
 
+✅ v0.8.2 Molecular Similarity Analysis
+
+- Cosine similarity matrix
+- Compound similarity ranking
+- Fingerprint comparison
+- Chemical space analysis
+- Similarity matrix export
+
 ---
 
 ### Molecular Machine Learning
-
-🟡 v0.8.2 Molecular Similarity Analysis
-
-Planned:
-
-- Cosine similarity matrix
-- Compound clustering
-- Fingerprint comparison
-- Chemical space analysis
 
 🟡 v0.8.3 QSAR Foundations
 

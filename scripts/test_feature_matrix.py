@@ -6,6 +6,7 @@ from rdkit.Chem import AllChem
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans
+from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
 
 
@@ -371,6 +372,31 @@ print("\n Compound Cluster Fingerprints:")
 print(compound_clusters)
 
 compound_clusters.to_csv("compound_cluster_fingerprints.csv")
+
+#-------------------
+# Cosine Similarity
+#-------------------
+
+similarity_matrix = pd.DataFrame(cosine_similarity(compound_clusters),
+                                 index=compound_clusters.index,
+                                 columns=compound_clusters.index)
+
+print("\nMolecular Similarity Matrix:")
+print(similarity_matrix.round(3))
+
+similarity_matrix.to_csv("molecular_similarity_matrix.csv")
+
+for compound in similarity_matrix.index:
+
+     print(f"\n{compound}")
+
+     similar = (
+          similarity_matrix.loc[compound]
+          .drop(compound)
+          .sort_values(ascending=False)
+          .head(3))
+
+     print(similar)
 
 # ----------------------------------
 # CLUSTER INTERPRETATION
