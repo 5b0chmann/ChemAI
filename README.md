@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.2 Molecular Similarity Analysis**
+**v0.8.3 Chemical Space Visualization**
 
 ## Current Objective
 
@@ -23,7 +23,7 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.2 Key Results
+## v0.8.3 Key Results
 
 - 20 pharmaceutical compounds analyzed
 - 312 atomic environments extracted
@@ -36,6 +36,12 @@ The project combines:
 - Molecular similarity matrix generation
 - Compound similarity ranking
 - Chemical space exploration
+- Molecular PCA analysis
+- Chemical space projection
+- Molecular cluster fingerprint heatmaps
+- Molecular similarity heatmaps
+
+---
 
 ### Discovered Chemical Environments
 
@@ -132,11 +138,19 @@ The project combines:
 - Chemical space analysis
 - Similarity matrix export
 
+✅ v0.8.3 Chemical Space Visualization
+
+- Molecular PCA
+- Chemical space projection
+- Molecular fingerprint heatmaps
+- Similarity heatmaps
+- Chemical space exploration
+
 ---
 
 ### Molecular Machine Learning
 
-🟡 v0.8.3 QSAR Foundations
+🟡 v0.8.4 QSAR Foundations
 
 Planned:
 
@@ -188,6 +202,8 @@ Chemical Environment Classes
 Molecular Cluster Fingerprints
 ↓
 Similarity Analysis
+↓
+Chemical Space Visualization
 ↓
 Machine Learning
 ```

@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 
 
 
+
 project_root = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(project_root))
 
@@ -467,6 +468,135 @@ for compound in similarity_matrix.index:
 
      print(similar)
 
+# ----------------------------------
+# CHEMICAL SPACE VISUALIZATION
+# ----------------------------------
+
+print("\n")
+print("=" * 80)
+print("CHEMICAL SPACE VISUALIZATION")
+print("=" * 80)
+
+# ----------------------------------
+# MOLECULAR PCA
+# Chemical space projection
+# ----------------------------------
+
+fingerprint_pca = PCA(n_components=2)
+
+compound_pca = fingerprint_pca.fit_transform(
+     compound_clusters
+)
+
+compound_pca_df = pd.DataFrame(
+     compound_pca,
+     columns=["PC1", "PC2"],
+     index=compound_clusters.index
+)
+
+print("\nMolecular PCA Coordinates:")
+print(compound_pca_df.round(3))
+
+print("\nExplained Variance Ratio:")
+print(fingerprint_pca.explained_variance_ratio_)
+
+# ----------------------------------
+# CHEMICAL SPACE PLOT
+# Molecule-level PCA visualization
+# ----------------------------------
+
+plt.figure(figsize=(12, 8))
+
+plt.scatter(
+     compound_pca_df["PC1"],
+     compound_pca_df["PC2"],
+     s=100
+)
+
+for compound in compound_pca_df.index:
+
+     plt.annotate(
+          compound,
+          (compound_pca_df.loc[compound, "PC1"],
+           compound_pca_df.loc[compound, "PC2"]
+           )
+     )
+
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+
+plt.title(
+     "Chemical Space of Molecular Fingerprints"
+)
+
+plt.grid(True)
+
+plt.tight_layout()
+
+plt.show()
+
+# ----------------------------------
+# FINGERPRINT HEATMAP
+# Cluster frequency patterns
+# ----------------------------------
+
+plt.figure(figsize=(14, 8))
+
+plt.imshow(
+     compound_clusters,
+     aspect="auto",
+     cmap="viridis"
+)
+
+plt.colorbar(label="Cluster Count")
+
+plt.xticks(
+     range(len(compound_clusters.columns)),
+     compound_clusters.columns,
+     rotation=90
+)
+
+plt.yticks(
+     range(len(compound_clusters.index)),
+     compound_clusters.index
+)
+
+plt.title("Molecular Cluster Fingerprints")
+
+plt.tight_layout()
+plt.show()
+
+# ----------------------------------
+# SIMILARITY HEATMAP
+# Molecular similarity landscape
+# ----------------------------------
+
+plt.figure(figsize=(12, 10))
+
+plt.imshow(
+     similarity_matrix,
+     cmap="coolwarm",
+     vmin=0,
+     vmax=1
+)
+
+plt.colorbar(label="Similarity")
+
+plt.xticks(
+     range(len(similarity_matrix.columns)),
+     similarity_matrix.columns,
+     rotation=90
+)
+
+plt.yticks(
+     range(len(similarity_matrix.index)),
+     similarity_matrix.index
+)
+
+plt.title("Molecular Similarity Matrix")
+
+plt.tight_layout()
+plt.show()
 
 # ----------------------------------
 # KMEANS VISUALIZATION
