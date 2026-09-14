@@ -362,6 +362,17 @@ print("\nAtom Types per Cluster:")
 print(df.groupby("cluster")["atom_symbol"].value_counts())
 
 # ----------------------------------
+# Molecular Cluster Fingerprints
+# ----------------------------------
+
+compound_clusters = (df.groupby(["compound_name", "cluster_name"]).size().unstack(fill_value=0))
+
+print("\n Compound Cluster Fingerprints:")
+print(compound_clusters)
+
+compound_clusters.to_csv("compound_cluster_fingerprints.csv")
+
+# ----------------------------------
 # CLUSTER INTERPRETATION
 # Example atoms from each cluster
 # ----------------------------------

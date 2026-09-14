@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.0 Atomic Environment Discovery**
+**v0.8.1 Molecular Cluster Fingerprints**
 
 ## Current Objective
 
@@ -23,16 +23,16 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.0 Key Results
+## v0.8.1 Key Results
 
 - 20 pharmaceutical compounds analyzed
 - 312 atomic environments extracted
 - 24 engineered atom-level descriptors
-- Electronic environment modelling
-- PCA analysis of atomic environments
-- KMeans clustering of atomic environments
+- 8 discovered chemical environment classes
 - Automatic chemical environment annotation
-- Discovery of 8 recurring chemical environment classes
+- Molecule-level cluster fingerprint generation
+- Chemical environment profiles for all compounds
+- Compound fingerprint matrix export
 
 ### Discovered Chemical Environments
 
@@ -112,19 +112,29 @@ The project combines:
 - Automatic cluster annotation
 - Chemical environment discovery
 
----
-
-### Molecular Machine Learning
-
-🟡 v0.8.1 Molecular Cluster Fingerprints
-
-Planned:
+✅ v0.8.1 Molecular Cluster Fingerprints
 
 - Compound-level cluster fingerprints
 - Environment frequency vectors
 - Molecule-level representations
+- Cluster frequency matrix generation
+- Molecule-level chemical environment profiles
+- Fingerprint CSV export
 
-🟡 v0.8.2 QSAR Foundations
+---
+
+### Molecular Machine Learning
+
+🟡 v0.8.2 Molecular Similarity Analysis
+
+Planned:
+
+- Cosine similarity matrix
+- Compound clustering
+- Fingerprint comparison
+- Chemical space analysis
+
+🟡 v0.8.3 QSAR Foundations
 
 Planned:
 
@@ -156,6 +166,8 @@ Planned:
 
 ## Current Pipeline
 
+## Current Pipeline
+
 ```text
 SMILES
 ↓
@@ -173,6 +185,9 @@ KMeans Clustering
 ↓
 Chemical Environment Classes
 ↓
-Molecular Fingerprints
+Molecular Cluster Fingerprints
+↓
+Similarity Analysis
 ↓
 Machine Learning
+```

@@ -1,0 +1,21 @@
+compound_name,Activated Aromatic/Heteroaromatic,Aliphatic sp3 Atom,Aromatic Carbon,Carbonyl Carbon,Carbonyl Oxygen,Electron-Rich Heteroatom,Heteroatom-Adjacent Carbon,Saturated Ring Atom
+(+)-Etomidate,3,2,8,1,1,1,2,0
+(-)-Etomidate,3,2,8,1,1,1,2,0
+(R)-Ibuprofen,0,4,6,1,1,1,0,2
+(S)-Ibuprofen,0,4,6,1,1,1,0,2
+(S)-Naproxen,1,1,9,1,1,2,1,1
+Aspirin,1,1,5,2,2,2,0,0
+Bupivacaine,1,5,5,1,1,1,2,5
+Carbamazepine,2,0,12,1,1,1,0,1
+Diclofenac,2,2,10,1,1,2,0,1
+Gabapentin,0,1,0,1,1,1,1,7
+Ibuprofen (Racemate),0,4,6,1,1,1,0,2
+Ketamine,0,2,6,1,1,0,1,5
+Lamotrigine,5,2,7,0,0,2,0,0
+Levetiracetam,0,1,0,2,2,1,2,4
+Lidocaine,1,4,5,1,1,1,3,1
+Naproxen (Racemate),1,1,9,1,1,2,1,1
+Paracetamol,2,1,4,1,1,2,0,0
+Pregabalin,0,4,0,1,1,1,1,3
+Propofol,1,4,5,0,0,1,0,2
+rac-Etomidate,3,2,8,1,1,1,2,0
