@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.3 Chemical Space Visualization**
+**v0.8.4 QSAR Foundations**
 
 ## Current Objective
 
@@ -23,23 +23,22 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.3 Key Results
+## v0.8.4 Key Results
 
 - 20 pharmaceutical compounds analyzed
 - 312 atomic environments extracted
 - 24 engineered atom-level descriptors
 - 8 discovered chemical environment classes
-- Automatic chemical environment annotation
-- Molecule-level cluster fingerprint generation
-- Chemical environment profiles for all compounds
-- Compound fingerprint matrix export
-- Molecular similarity matrix generation
-- Compound similarity ranking
-- Chemical space exploration
-- Molecular PCA analysis
-- Chemical space projection
-- Molecular cluster fingerprint heatmaps
-- Molecular similarity heatmaps
+- Molecule-level cluster fingerprints
+- Molecular similarity analysis
+- Chemical space visualization
+- QSAR dataset generation
+- Molecular Weight prediction
+- LogP prediction
+- TPSA prediction
+- Linear Regression baseline models
+- Random Forest baseline models
+- Model comparison using R² and MAE
 
 ---
 
@@ -146,17 +145,28 @@ The project combines:
 - Similarity heatmaps
 - Chemical space exploration
 
+✅ v0.8.4 QSAR Foundations
+
+- QSAR dataset generation
+- Molecular Weight prediction
+- LogP prediction
+- TPSA prediction
+- Linear Regression baseline models
+- Random Forest baseline models
+- Model comparison
+
 ---
 
 ### Molecular Machine Learning
 
-🟡 v0.8.4 QSAR Foundations
+🟡 v0.8.5 Dataset Expansion
 
 Planned:
 
-- Physicochemical property prediction
-- Toxicity prediction
-- Activity prediction
+- 100+ compounds
+- Expanded chemical diversity
+- Improved QSAR performance
+- More robust train/test splits
 
 ---
 
