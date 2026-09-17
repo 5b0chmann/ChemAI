@@ -64,3 +64,21 @@ def get_all_compounds():
     compounds = cursor.fetchall()
     conn.close()
     return compounds
+
+def compound_exists(compound_name):
+
+    conn = get_connection()
+
+    cursor = conn.cursor()
+
+    cursor.execute(
+        """SELECT 1 FROM compounds WHERE common_name = ?""",
+        (compound_name,)
+
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    return result is not None

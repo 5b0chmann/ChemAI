@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.4 QSAR Foundations**
+**v0.8.4.1 Electronic Environment Analysis**
 
 ## Current Objective
 
@@ -23,10 +23,10 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.4 Key Results
+## v0.8.4.1 Key Results
 
-- 20 pharmaceutical compounds analyzed
-- 312 atomic environments extracted
+- 41 pharmaceutical compounds analyzed
+- 890 atomic environments extracted
 - 24 engineered atom-level descriptors
 - 8 discovered chemical environment classes
 - Molecule-level cluster fingerprints
@@ -39,6 +39,11 @@ The project combines:
 - Linear Regression baseline models
 - Random Forest baseline models
 - Model comparison using R² and MAE
+- Electronic polarity analysis
+- charge_spread descriptor
+- charge_asymmetry descriptor
+- Identification of highly polarized atomic environments
+- Identification of highly asymmetric electronic environments
 
 ---
 
@@ -155,6 +160,16 @@ The project combines:
 - Random Forest baseline models
 - Model comparison
 
+✅ v0.8.4.1 Electronic Environment Analysis
+
+- charge_spread descriptor
+- charge_asymmetry descriptor
+- Electronic polarity analysis
+- Identification of highly polarized atoms
+- Identification of highly asymmetric atoms
+- Exploration of local electronic environments
+- Foundation for future NMR-related descriptors
+
 ---
 
 ### Molecular Machine Learning
@@ -163,10 +178,20 @@ The project combines:
 
 Planned:
 
-- 100+ compounds
-- Expanded chemical diversity
-- Improved QSAR performance
-- More robust train/test splits
+- 100+ pharmaceutical compounds
+- Expanded therapeutic classes
+- Increased electronic diversity
+- Improved QSAR robustness
+- Expanded LogP and TPSA ranges
+
+🟡 v0.8.5.1 Loader Hardening
+
+Planned:
+
+- Retry handling for HTTP 429
+- CAS-based duplicate detection
+- Request monitoring
+- More robust RSC synchronization
 
 ---
 
