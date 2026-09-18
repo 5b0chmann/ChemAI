@@ -181,3 +181,94 @@ print(
                   ascending=False)
                   .head(50)
 )
+
+# ----------------------------------
+# ELECTRONIC CLASSES
+# ----------------------------------
+
+df["electronic_class"] = "neutral"
+
+df.loc[
+     df["charge_asymmetry"] > 0.60,
+     "electronic_class"
+] = "electronically_distinct"
+
+df.loc[
+     df["charge_spread"] > 0.50,
+     "electronic_class"
+] =  "highly_polarized"
+
+df.loc[
+     (df["charge_asymmetry"] > 0.60)
+     &
+     (df["charge_spread"] > 0.50),
+      "electronic_class"
+] = "electronic_hotspot"
+
+hotspots = df[
+     (df["charge_asymmetry"] > 0.6)
+     &
+     (df["charge_spread"] > 0.5)
+]
+
+print("\nElectronic Hotspots:")
+print(len(hotspots))
+
+print(
+     hotspots[
+          [
+               "compound_name",
+               "atom_symbol",
+               "charge_spread",
+               "charge_asymmetry"
+          ]
+     ]
+)
+
+print("\nElectronic Class Distribution:")
+
+print(
+     df.groupby(
+          "electronic_class"
+     )[
+          [
+               "gasteiger_charge",
+               "charge_spread",
+               "charge_asymmetry"
+          ]
+     ].mean()
+)
+
+print("\nElectronic Class by Atom Type:")
+
+print(
+     df.groupby(
+          "electronic_class"
+     )["atom_symbol"]
+     .value_counts()
+)
+
+print("\nElectronic Classes by Compounds:")
+
+print(
+     df.groupby(
+          "electronic_class"
+     )["compound_name"]
+     .value_counts()
+     .head(50)
+)
+
+print(
+     df.groupby(
+          ["electronic_class", "atom_symbol"]
+     )
+     .size()
+     .unstack(fill_value=0)
+)
+
+# ----------------------------------
+# DATASET BUILDER
+# ----------------------------------
+
+def build_electonic_dataset():
+     return df.copy()
