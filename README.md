@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.4.1 Electronic Environment Analysis**
+**v0.8.4.2 Electronic Space Analysis**
 
 ## Current Objective
 
@@ -23,7 +23,7 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.4.1 Key Results
+## v0.8.4.2 Key Results
 
 - 41 pharmaceutical compounds analyzed
 - 890 atomic environments extracted
@@ -42,8 +42,11 @@ The project combines:
 - Electronic polarity analysis
 - charge_spread descriptor
 - charge_asymmetry descriptor
+- Electronic class discovery
 - Identification of highly polarized atomic environments
 - Identification of highly asymmetric electronic environments
+- First Electronic PCA
+- First Electronic Space representation
 
 ---
 
@@ -170,19 +173,44 @@ The project combines:
 - Exploration of local electronic environments
 - Foundation for future NMR-related descriptors
 
+✅ v0.8.4.2 Electronic Space Analysis
+
+- Electronic PCA
+- Electronic space projection
+- charge_spread analysis
+- charge_asymmetry analysis
+- Electronic class discovery
+- Separation of polarized and electronically distinct environments
+- First electronic environment mapping
+
 ---
 
 ### Molecular Machine Learning
 
 🟡 v0.8.5 Dataset Expansion
 
+Progress:
+
+✅ Phase A – Cardiovascular Drugs
+
+- ACE inhibitors
+- Sartans
+- Beta blockers
+
+Current Dataset:
+
+- 41 pharmaceutical compounds
+- 890 atomic environments
+
 Planned:
 
-- 100+ pharmaceutical compounds
-- Expanded therapeutic classes
-- Increased electronic diversity
-- Improved QSAR robustness
-- Expanded LogP and TPSA ranges
+- CNS library
+- Antibiotics
+- Antidiabetics
+- Antipsychotics
+- Benzodiazepines
+- Opioids
+- Expanded chemical diversity
 
 🟡 v0.8.5.1 Loader Hardening
 
@@ -226,11 +254,15 @@ Atom Features
 ↓
 Electronic Features
 ↓
-Atomic Environment Matrix
+charge_spread
 ↓
-PCA
+charge_asymmetry
 ↓
-KMeans Clustering
+Electronic Classes
+↓
+Electronic PCA
+↓
+Electronic Space
 ↓
 Chemical Environment Classes
 ↓
@@ -241,4 +273,6 @@ Similarity Analysis
 Chemical Space Visualization
 ↓
 Machine Learning
+↓
+Future NMR Prediction
 ```
