@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.4.2 Electronic Space Analysis**
+**v0.8.4.3 Local Dipole Analysis**
 
 ## Current Objective
 
@@ -23,30 +23,21 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.4.2 Key Results
+## v0.8.4.3 Key Results
 
-- 41 pharmaceutical compounds analyzed
-- 890 atomic environments extracted
-- 24 engineered atom-level descriptors
-- 8 discovered chemical environment classes
-- Molecule-level cluster fingerprints
-- Molecular similarity analysis
-- Chemical space visualization
-- QSAR dataset generation
-- Molecular Weight prediction
-- LogP prediction
-- TPSA prediction
-- Linear Regression baseline models
-- Random Forest baseline models
-- Model comparison using R² and MAE
-- Electronic polarity analysis
-- charge_spread descriptor
-- charge_asymmetry descriptor
-- Electronic class discovery
-- Identification of highly polarized atomic environments
-- Identification of highly asymmetric electronic environments
-- First Electronic PCA
-- First Electronic Space representation
+- 3D molecular conformer generation
+- MMFF geometry optimization
+- Local atomic dipole vector calculation
+- Gasteiger charge difference modeling
+- local_dipole_x descriptor
+- local_dipole_y descriptor
+- local_dipole_z descriptor
+- local_dipole_magnitude descriptor
+- Dipole Space foundations
+- 621 local dipole environments analyzed
+- Dipole feature dataset generation
+- Integration with QSAR descriptors
+- Foundation for Electronic Space vs Lipophilicity analysis
 
 ---
 
@@ -183,6 +174,20 @@ The project combines:
 - Separation of polarized and electronically distinct environments
 - First electronic environment mapping
 
+✅ v0.8.4.3 Local Dipole Analysis
+
+- 3D conformer generation
+- MMFF geometry optimization
+- Local atomic dipole vectors
+- Charge difference dipole model
+- local_dipole_x
+- local_dipole_y
+- local_dipole_z
+- local_dipole_magnitude
+- Dipole feature extraction
+- Dipole Space foundations
+- Export of local_dipole_features.csv
+
 ---
 
 ### Molecular Machine Learning
@@ -250,6 +255,10 @@ SMILES
 ↓
 RDKit Molecule
 ↓
+3D Conformer
+↓
+MMFF Optimization
+↓
 Atom Features
 ↓
 Electronic Features
@@ -264,6 +273,10 @@ Electronic PCA
 ↓
 Electronic Space
 ↓
+Local Dipoles
+↓
+Dipole Space
+↓
 Chemical Environment Classes
 ↓
 Molecular Cluster Fingerprints
@@ -273,6 +286,8 @@ Similarity Analysis
 Chemical Space Visualization
 ↓
 Machine Learning
+↓
+Lipophilicity Analysis
 ↓
 Future NMR Prediction
 ```
