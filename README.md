@@ -1,7 +1,7 @@
 # ChemAI
 
 ## Current Version
-**v0.8.4.3 Local Dipole Analysis**
+**v0.8.4.4 Dipole Space Analysis**
 
 ## Current Objective
 
@@ -23,21 +23,53 @@ The project combines:
 
 ## Roadmap
 
-## v0.8.4.3 Key Results
+## v0.8.4.4 Key Results
 
-- 3D molecular conformer generation
-- MMFF geometry optimization
-- Local atomic dipole vector calculation
-- Gasteiger charge difference modeling
-- local_dipole_x descriptor
-- local_dipole_y descriptor
-- local_dipole_z descriptor
-- local_dipole_magnitude descriptor
-- Dipole Space foundations
+- Dipole Space analysis completed
 - 621 local dipole environments analyzed
-- Dipole feature dataset generation
-- Integration with QSAR descriptors
-- Foundation for Electronic Space vs Lipophilicity analysis
+- Atom-level dipole statistics
+- Molecule-level dipole statistics
+- Mean molecular dipole calculation
+- Maximum molecular dipole calculation
+- Dipole variability analysis
+- Structural dipole driver discovery
+- Dipole Driver Ranking
+
+Key findings:
+
+- Mean Dipole ↔ TPSA
+  - r = 0.765
+
+- Mean Dipole ↔ LogP
+  - r = -0.421
+
+Strongest structural dipole drivers:
+
+1. Oxygen neighbors
+2. Nitrogen neighbors
+3. Double bonds
+
+Observed correlations:
+
+- neighbor_o = 0.564
+- neighbor_n = 0.425
+- double_bonds = 0.367
+
+Negative drivers:
+
+- neighbor_c = -0.318
+- is_in_ring = -0.240
+- is_aromatic = -0.216
+
+Major finding:
+
+Electronic Space
+↓
+Dipole Space
+↓
+TPSA
+↓
+LogP
 
 ---
 
@@ -188,9 +220,41 @@ The project combines:
 - Dipole Space foundations
 - Export of local_dipole_features.csv
 
+✅ v0.8.4.4 Dipole Space Analysis
+
+- Dipole Space characterization
+- Atom-level dipole statistics
+- Molecule-level dipole statistics
+- Dipole Driver Ranking
+- Structural feature analysis
+- Oxygen neighbor effects
+- Nitrogen neighbor effects
+- Double-bond effects
+- TPSA correlation analysis
+- LogP correlation analysis
+
 ---
 
 ### Molecular Machine Learning
+
+🟡 v0.8.4.5 Electronic Space vs Dipole Space
+
+Planned:
+
+- Electronic Space comparison
+- Dipole Space comparison
+- Combined descriptor analysis
+- PCA comparison
+- Shared polarity drivers
+
+🟡 v0.8.4.6 Electronic Space and Lipophilicity
+
+Planned:
+
+- Electronic → LogP analysis
+- Dipole → LogP analysis
+- TPSA prediction
+- Descriptor importance ranking
 
 🟡 v0.8.5 Dataset Expansion
 
@@ -277,6 +341,12 @@ Local Dipoles
 ↓
 Dipole Space
 ↓
+Structural Dipole Drivers
+↓
+TPSA
+↓
+LogP
+↓
 Chemical Environment Classes
 ↓
 Molecular Cluster Fingerprints
@@ -286,8 +356,6 @@ Similarity Analysis
 Chemical Space Visualization
 ↓
 Machine Learning
-↓
-Lipophilicity Analysis
 ↓
 Future NMR Prediction
 ```
